@@ -1,4 +1,4 @@
-# Holidu frontend developer interview assignment
+# Scaffold app
 
 ## My Updates
 ### Prime tech stack
