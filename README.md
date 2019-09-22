@@ -6,7 +6,7 @@
 - yarn 1.15.2
 - React 16.9.0
 
-In the client project directory, you can run:
+## Available Scripts
 
 ### `yarn start`
 
@@ -38,91 +38,24 @@ Other packages used are:
 - Jest for unit testing.
 - Added Rule in .eslintrc.json to exclude PropTypes: react/forbid-prop-types . Please excuse me to skip prop-types due to lack of time.
 
-Hi there! Congratulations on making it to the next step!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is using [Material-UI](https://material-ui.com/) and [Recharts](http://recharts.org/) to save you some time.
+## Naming Conventions
 
-
-Your task is to fetch the data from the mock API at `/api/people.json`, for example http://localhost:3000/api/people.json, and make it usable in the dashboard.
-
-
-The following functionality should be implemented:
-
-* Filter and sort the Scores Listing by any of the shown attributes, such as first name, last name, or country
-* Show the average score of the people in the data set grouped by country in a suitable visualization
-* Show the average score of the people in the data set grouped by gender in a suitable visualization
-
-Some tests for the implemented functionality would be nice, too. 😉
+- The name of the components should be of the format ${CONTEXT}${PURPOSE}, like UserList.js or TeamCreateEditForm.js
+- Action names should be prefixed with the name of your application, such as my-app/USER_LIST_GET_REQUESTED.
 
 
-If you have any questions, please send an email to your HR contact at Holidu.
+## Rules
 
-Good luck and happy coding!
+- Reading state: Use reselect to create selectors, never access the state directly (only use selectors). 
+- Furthermore, if we make a rule that you can only access the redux store via selector functions this will make the whole application much more maintainable and predictable, not to mention potentially faster.
+- Side-Effectful Updates: Use mapDispatchToProps to dispatch *_REQUESTED actions, and a side-effect handler like redux-saga to listen for these “requests”, process them, and dispatch the relevant *_SUCCEEDED or *_FAILED actions, ex- Now we write a saga to listen for the action my-app/USER_LIST_GET_REQUESTED.
+- Data validation: create schema for validation.
 
+- Duck pattern
+A module...
+    MUST export default a function called reducer()
+    MUST export its action creators as functions
+    MUST have action types in the form npm-module-or-app/reducer/ACTION_TYPE
+    MAY export its action types as UPPER_SNAKE_CASE, if an external reducer needs to listen for them, or if it is a published reusable library
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `yarn test` or `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build` or `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject` or `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

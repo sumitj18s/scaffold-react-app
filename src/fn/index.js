@@ -1,6 +1,5 @@
-import SORTING from '../Components/SortIcon/constants';
-
-const R = require('ramda');
+import R from 'ramda';
+import SORTING from '../components/SortIcon/constants';
 
 const handleSort = sortOrder => {
   return sortOrder === SORTING.DESC ? SORTING.ASC : SORTING.DESC;
