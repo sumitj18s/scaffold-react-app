@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual }  from 'react-redux'
-import { fetchAPI , fetchSecondAPI} from "../redux/placeholder";
+import { fetchAPI , fetchSecondAPI} from "../../redux/placeholder";
 
-function Main() {
-  const stateValue = useSelector((state) => state.count, shallowEqual);
+function Dashboard() {
+  const stateValue = useSelector((state) => state.data && state.data.restaurants[0].name, shallowEqual);
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   
@@ -27,4 +27,4 @@ function Main() {
   );
 }
 
-export default Main
+export default Dashboard

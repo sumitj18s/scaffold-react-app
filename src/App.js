@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import Main from './features/Main';
+// import Dashboard from './features/Dashboard';
+import Login from './features/Login';
 
 export default function App() {
   return (
-    <Main />
+    <Login />
   );
 }
