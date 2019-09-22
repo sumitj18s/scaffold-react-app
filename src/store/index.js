@@ -1,14 +1,16 @@
-import { createStore } from 'redux';
-// import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import placeholderReducer from '../redux/placeholder';
-// import createSagaMiddleware from 'redux-saga';
+import placeholderReducer, {fetchData} from '../redux/placeholder';
 
+const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(placeholderReducer,
   composeWithDevTools(
-    
+    applyMiddleware(sagaMiddleware)
     // other store enhancers if any
     ));
+
+sagaMiddleware.run(fetchData)
 
 export default store;

@@ -1,5 +1,5 @@
 import createAsyncActionType from '../utils/reduxUtils'
-
+import { takeLatest } from 'redux-saga/effects'
 // ACTIONS
 const FETCH_API= createAsyncActionType('my-app/api/FETCH');
 const FETCH_SEC_API= createAsyncActionType('my-app/api/FETCH_SEC');
@@ -35,3 +35,8 @@ export default function placeholderReducer(state = initialState, action) {
   }
 }
 
+// side effects, only as applicable
+// e.g. thunks, epics, etc
+export function* fetchData(){
+  yield takeLatest(FETCH_API.PENDING, ()=>{console.log('saga called');})
+}
