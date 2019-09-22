@@ -1,10 +1,7 @@
-import React from 'react';
-import './App.css';
-// import Dashboard from './features/Dashboard';
-import Login from './features/Login';
+import Routing from './routes'
 
-export default function App() {
-  return (
-    <Login />
-  );
-}
+
+
+const App = ()=>Routing()
+console.log({E:Routing(), F:()=>Routing()});
+export default App
